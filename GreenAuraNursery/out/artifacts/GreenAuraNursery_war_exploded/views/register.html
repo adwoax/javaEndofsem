@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Green Aura Nursery</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <main class="login-screen">
+        <section class="login-scene" aria-label="Register scene">
+            <span class="shape shape-ring"></span>
+            <span class="shape shape-squiggle"></span>
+            <span class="shape shape-leaf"></span>
+            <span class="shape shape-wave"></span>
+
+            <section class="login-panel register-panel" aria-label="Register form">
+                <a class="login-brand" href="../index.html">green aura nursery</a>
+                <h1>Register</h1>
+                <p>Create your account to save your cart and checkout faster.</p>
+
+                <form id="registerForm" class="auth-form login-form">
+                    <div class="register-grid">
+                        <div class="auth-field">
+                            <label for="registerName">Full Name</label>
+                            <input id="registerName" type="text" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="auth-field">
+                            <label for="registerEmail">Email</label>
+                            <input id="registerEmail" type="email" placeholder="you@example.com" required>
+                        </div>
+
+                        <div class="auth-field">
+                            <label for="registerPassword">Password</label>
+                            <input id="registerPassword" type="password" placeholder="Create a secure password" required>
+                        </div>
+
+                        <div class="auth-field">
+                            <label for="registerPhone">Phone</label>
+                            <input id="registerPhone" type="text" placeholder="Optional">
+                        </div>
+
+                        <div class="auth-field field-span-full">
+                            <label for="registerAddress">Address</label>
+                            <textarea id="registerAddress" rows="3" placeholder="Street, city, and landmark (optional)"></textarea>
+                        </div>
+                    </div>
+
+                    <button class="cart-btn" type="submit">Create account</button>
+                </form>
+
+                <p class="oauth-divider">or continue with</p>
+                <a class="google-login-btn" href="info.html?topic=google-login" aria-label="Continue with Google">Continue with Google</a>
+
+                <p class="auth-links">Already registered? <a href="login.html">Login</a></p>
+                <p class="auth-links"><a href="../index.html">Back to home</a></p>
+            </section>
+        </section>
+    </main>
+    <script src="../js/app.js"></script>
+</body>
+</html>

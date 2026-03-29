@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Green Aura Nursery</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <main class="login-screen">
+        <section class="login-scene" aria-label="Login scene">
+            <span class="shape shape-ring"></span>
+            <span class="shape shape-squiggle"></span>
+            <span class="shape shape-leaf"></span>
+            <span class="shape shape-wave"></span>
+
+            <section class="login-panel" aria-label="Login form">
+                <a class="login-brand" href="../index.html">green aura nursery</a>
+                <h1>Login</h1>
+                <p>Continue your plant journey and manage your orders.</p>
+
+                <form id="loginForm" class="auth-form login-form">
+                    <label for="loginEmail">Email</label>
+                    <input id="loginEmail" type="email" placeholder="username@email.com" required>
+
+                    <label for="loginPassword">Password</label>
+                    <input id="loginPassword" type="password" placeholder="Password" required>
+
+                    <a class="forgot-link" href="info.html?topic=password-reset">Forgot Password?</a>
+                    <button class="cart-btn" type="submit">Sign in</button>
+                </form>
+
+                <p class="oauth-divider">or continue with</p>
+
+                <a class="google-login-btn" href="info.html?topic=google-login" aria-label="Continue with Google">
+                    Continue with Google
+                </a>
+
+                <p class="auth-links">Don't have an account yet? <a href="register.html">Register for free</a></p>
+            </section>
+        </section>
+    </main>
+    <script src="../js/app.js"></script>
+</body>
+</html>

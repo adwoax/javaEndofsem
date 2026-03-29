@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Aura Nursery - Fresh Plants Delivered</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="promo-bar">
+        Free delivery in Accra on orders above GH₵ 200 | Same-day dispatch available
+    </div>
+
+    <header class="site-header">
+        <div class="header-top">
+            <div class="logo-stack" aria-label="green aura nursery">
+                <span>green</span>
+                <span>aura nursery</span>
+            </div>
+            <nav class="top-nav">
+                <a href="views/catalogue.html?section=occasions" class="has-arrow">Occasions <span class="arrow">▾</span></a>
+                <a href="views/catalogue.html?section=flowers" class="has-arrow">Flowers <span class="arrow">▾</span></a>
+                <a href="views/catalogue.html?section=hampers" class="has-arrow">Hampers & Gifts <span class="arrow">▾</span></a>
+                <a href="views/catalogue.html?section=more" class="has-arrow">More <span class="arrow">▾</span></a>
+                <a href="views/catalogue.html?sort=price" class="has-arrow">Price <span class="arrow">▾</span></a>
+                <a href="views/info.html?topic=vouchers">Vouchers</a>
+                <a href="views/info.html?topic=corporate">Corporate</a>
+            </nav>
+            <div class="account-actions">
+                <a class="account-link" href="views/login.html">Log in</a>
+                <span class="account-inline-separator">/</span>
+                <a class="account-register-link" href="views/register.html">Register</a>
+            </div>
+        </div>
+        <div class="header-middle">
+            <div class="search-wrap">
+                <input id="searchInput" type="text" placeholder="Search for roses, herbs, succulents...">
+                <button id="searchButton" type="button">Search</button>
+            </div>
+            <button class="cart-btn" id="cartButton" type="button">My Cart (0)</button>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="views/catalogue.html?section=best-sellers">Best Sellers</a>
+            <a href="views/catalogue.html?section=indoor">Indoor Plants</a>
+            <a href="views/catalogue.html?section=outdoor">Outdoor Plants</a>
+            <a href="views/catalogue.html?section=gifts">Gifts</a>
+            <a href="views/info.html?topic=contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <section class="video-block">
+        <video autoplay muted loop playsinline>
+            <source src="assets/media/background-video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay">
+            <h3>Bring nature home, one plant at a time.</h3>
+        </div>
+    </section>
+
+    <section class="info-strip" aria-label="Store benefits">
+        <article class="info-card">
+            <div class="info-head">
+                <h3>Earn Loyalty Points</h3>
+                <span class="info-icon">%</span>
+            </div>
+            <p>Click here to learn more</p>
+        </article>
+
+        <article class="info-card">
+            <div class="info-head">
+                <h3>Newsletter Signup</h3>
+                <span class="info-icon">✎</span>
+            </div>
+            <div class="newsletter-row">
+                <input type="email" placeholder="Email Address" aria-label="Email address">
+                <button type="button" aria-label="Submit newsletter">➤</button>
+            </div>
+        </article>
+
+        <article class="info-card">
+            <div class="info-head">
+                <h3>Nationwide Delivery</h3>
+                <span class="info-icon">🚚</span>
+            </div>
+            <p>Click here to learn more</p>
+        </article>
+    </section>
+
+    <section class="featured-grid">
+        <div class="section-head">
+            <h2>Popular This Week</h2>
+            <a href="views/catalogue.html">View all products</a>
+        </div>
+
+        <div class="products">
+            <article class="product-card">
+                <img src="assets/images/hassavocadoTREE.png" alt="Hass Avocado Tree">
+                <h4>Hass Avocado Seedling</h4>
+                <p>Fast-growing and fruit-ready variety.</p>
+                <div class="price-row"><span>GH₵ 45.00</span><button class="add-to-cart-btn" data-plant-id="1" type="button">Add</button></div>
+            </article>
+
+            <article class="product-card">
+                <img src="assets/images/orangeTREE.png" alt="Orange Tree">
+                <h4>Grafted Orange Plant</h4>
+                <p>Compact citrus ideal for balconies.</p>
+                <div class="price-row"><span>GH₵ 38.00</span><button class="add-to-cart-btn" data-plant-id="2" type="button">Add</button></div>
+            </article>
+
+            <article class="product-card">
+                <img src="assets/images/candalebra.jpg" alt="Candelabra cactus">
+                <h4>Candelabra Cactus</h4>
+                <p>Architectural beauty for modern spaces.</p>
+                <div class="price-row"><span>GH₵ 55.00</span><button class="add-to-cart-btn" data-plant-id="3" type="button">Add</button></div>
+            </article>
+
+            <article class="product-card">
+                <img src="assets/images/lemonPLANT.png" alt="Lemon Plant">
+                <h4>Lemon Seedling</h4>
+                <p>Fragrant leaves and juicy harvests.</p>
+                <div class="price-row"><span>GH₵ 35.00</span><button class="add-to-cart-btn" data-plant-id="4" type="button">Add</button></div>
+            </article>
+        </div>
+    </section>
+
+    <section class="footer-links-panel" aria-label="Footer quick links">
+        <div class="footer-links-grid">
+            <ul>
+                <li><a href="views/info.html?topic=about">About us</a></li>
+                <li><a href="views/info.html?topic=contact">Contact us</a></li>
+                <li><a href="views/info.html?topic=faq">FAQ</a></li>
+                <li><a href="views/info.html?topic=privacy">Privacy Policy</a></li>
+                <li><a href="views/info.html?topic=terms">Terms and Conditions</a></li>
+                <li><a href="views/info.html?topic=security">Security</a></li>
+                <li><a href="views/info.html?topic=site-map">Site Map</a></li>
+                <li><a href="views/info.html?topic=social-responsibility">Social Responsibility</a></li>
+            </ul>
+            <ul>
+                <li><a href="views/register.html">Register</a></li>
+                <li><a href="views/login.html">Log in</a></li>
+                <li><a href="views/cart.html">My Account</a></li>
+                <li><a href="views/info.html?topic=corporates">Corporates</a></li>
+                <li><a href="views/info.html?topic=reminder-service">Reminder Service</a></li>
+                <li><a href="views/info.html?topic=refer-friends">Refer Friends &amp; Win</a></li>
+                <li><a href="views/info.html?topic=loyalty-points">Loyalty Points</a></li>
+                <li><a href="views/info.html?topic=affiliate-program">Affiliate Program</a></li>
+            </ul>
+            <ul>
+                <li><a href="views/catalogue.html?section=fresh-flowers">Fresh Flowers</a></li>
+                <li><a href="views/catalogue.html?section=gift-hampers">Gift Hampers</a></li>
+                <li><a href="views/catalogue.html?section=plants">Plants</a></li>
+                <li><a href="views/catalogue.html?section=baby-gifts">Baby Gifts</a></li>
+                <li><a href="views/catalogue.html?section=teddy-bears">Teddy Bears</a></li>
+                <li><a href="views/catalogue.html?section=magazines">Magazine Subscriptions</a></li>
+                <li><a href="views/catalogue.html?section=chocolate-flowers">Chocolate Flowers</a></li>
+                <li><a href="views/info.html?topic=vouchers">Vouchers</a></li>
+            </ul>
+            <div class="footer-col-social">
+                <ul>
+                    <li><a href="views/info.html?topic=delivery-areas">Flower and Gift Delivery Areas</a></li>
+                    <li><a href="views/info.html?topic=international-delivery">International Flower Delivery</a></li>
+                    <li><a href="views/info.html?topic=delivery-info">Delivery Information</a></li>
+                    <li><a href="views/info.html?topic=newsletters">Newsletters</a></li>
+                    <li><a href="views/info.html?topic=payment-options">Payment Options</a></li>
+                    <li><a href="views/info.html?topic=helpful-information">Helpful Information</a></li>
+                </ul>
+                <div class="social-row" aria-label="Social links">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">t</a>
+                    <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">p</a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-panel" aria-label="Customer trust statement">
+        <div class="trust-wrap">
+            <div class="guarantee-badge">
+                <span>100%</span>
+                <span>Satisfaction</span>
+                <span>Guarantee</span>
+            </div>
+            <p>We will gladly send you a replacement or refund your order if you are not 100% satisfied with your purchase.</p>
+        </div>
+        <blockquote class="trust-quote">
+            <p>Thanks to you guys for the awesome service and just to let you know it resulted in tears of joy.</p>
+            <p>This is definitely another case of a happy customer and I will use you guys again ... <strong>- Adwoa Daki</strong> <a href="views/info.html?topic=testimonials">(read more)</a></p>
+        </blockquote>
+    </section>
+
+    <footer>
+        <p>Copyright &copy; 2024 Green Aura Nursery - Bringing Life To Every Garden. All rights reserved.</p>
+        <div class="payment-row" aria-label="Payment methods">
+            <span>VISA</span>
+            <span>Mastercard</span>
+            <span>instantEFT</span>
+            <span>PayFast</span>
+            <span>Zapper</span>
+            <span>SnapScan</span>
+            <span>Mobicred</span>
+        </div>
+    </footer>
+
+    <div id="registerPromptModal" class="register-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="registerPromptTitle">
+        <div class="register-modal-card">
+            <button id="registerPromptClose" class="register-modal-close" type="button" aria-label="Close registration prompt">x</button>
+            <h2 id="registerPromptTitle">Welcome to Green Aura Nursery</h2>
+            <p>Create a free account to save your cart, checkout faster, and earn loyalty rewards.</p>
+            <div class="register-modal-actions">
+                <a id="registerPromptAction" href="views/register.html" class="cart-btn">Register now</a>
+                <button id="registerPromptLater" class="register-later-btn" type="button">Maybe later</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
