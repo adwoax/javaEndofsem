@@ -72,6 +72,47 @@ public class CartDAO {
     }
 
     /**
+     * Removes one quantity of a plant from the user's cart.
+     * If quantity reaches zero, the row is deleted.
+     */
+    public void removeFromCart(int userId, int plantId) {
+        String checkSql = "SELECT id, quantity FROM cart_items WHERE userId = ? AND plantId = ?";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
+
+            checkStmt.setInt(1, userId);
+            checkStmt.setInt(2, plantId);
+            ResultSet rs = checkStmt.executeQuery();
+
+            if (!rs.next()) {
+                return;
+            }
+
+            int cartItemId = rs.getInt("id");
+            int currentQty = rs.getInt("quantity");
+
+            if (currentQty > 1) {
+                String updateSql = "UPDATE cart_items SET quantity = ? WHERE id = ?";
+                try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
+                    updateStmt.setInt(1, currentQty - 1);
+                    updateStmt.setInt(2, cartItemId);
+                    updateStmt.executeUpdate();
+                }
+            } else {
+                String deleteSql = "DELETE FROM cart_items WHERE id = ?";
+                try (PreparedStatement deleteStmt = conn.prepareStatement(deleteSql)) {
+                    deleteStmt.setInt(1, cartItemId);
+                    deleteStmt.executeUpdate();
+                }
+            }
+
+        } catch (SQLException e) {
+            System.out.println("ERROR in removeFromCart: " + e.getMessage());
+        }
+    }
+
+    /**
      * Retrieves all CartItem objects for a given user.
      * Used on the Cart page to display what's in the user's cart.
      *

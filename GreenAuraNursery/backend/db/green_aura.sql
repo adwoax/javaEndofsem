@@ -55,6 +55,7 @@ CREATE TABLE IF NOT EXISTS orders (
     userId     INT NOT NULL,                      -- Who placed the order
     totalPrice DECIMAL(10, 2) NOT NULL,           -- Grand total in GH₵
     orderDate  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,-- When order was placed
+    status     VARCHAR(20) DEFAULT 'PENDING',     -- PENDING, RECEIVED, CANCELLED
     FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE
 );
 

@@ -3,19 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - Green Aura Nursery</title>
+    <title>Delivery &amp; Payment - Green Aura Nursery</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <main class="page-shell">
-        <section class="summary-card">
-            <div class="section-head standalone-head">
-                <h1>Checkout</h1>
-                <a href="cart.html">Back to cart</a>
+<body class="modern-cart-page carts-page checkout-page">
+    <div class="promo-bar">
+        Need help with checkout? Call us on 055 676 0450 | Fast same-day dispatch in Accra
+    </div>
+
+    <header class="site-header">
+        <div class="header-top">
+            <a href="../index.html" class="logo-stack" aria-label="green aura nursery" style="text-decoration:none;">
+                <span class="logo-topline">
+                    <span class="logo-main">green</span>
+                    <img class="brand-logo-mark" src="../assets/images/brand-logo.svg" alt="Green Aura Nursery logo">
+                </span>
+                <span class="logo-sub">aura nursery</span>
+            </a>
+            <nav class="top-nav" aria-label="Primary">
+                <a href="../index.html">Home</a>
+                <details class="nav-dropdown">
+                    <summary class="has-arrow">Occasions <span class="arrow">▾</span></summary>
+                    <div class="nav-dropdown-menu" role="menu" aria-label="Occasions">
+                        <a href="catalogue.html?section=occasions&amp;occasion=easter" role="menuitem">Easter</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=anniversary" role="menuitem">Anniversary</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=birthday" role="menuitem">Birthday</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=congratulations" role="menuitem">Congratulations</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=engagement" role="menuitem">Engagement</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=for-her" role="menuitem">For Her</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=for-him" role="menuitem">For Him</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=friendship" role="menuitem">Friendship</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=get-well" role="menuitem">Get Well</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=just-because" role="menuitem">Just Because</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=kids" role="menuitem">Kids</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=love-and-romance" role="menuitem">Love and Romance</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=new-baby" role="menuitem">New Baby</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=new-job" role="menuitem">New Job</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=sympathy" role="menuitem">Sympathy</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=thank-you" role="menuitem">Thank You</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=wedding" role="menuitem">Wedding</a>
+                    </div>
+                </details>
+                <details class="nav-dropdown">
+                    <summary class="has-arrow">Flowers <span class="arrow">▾</span></summary>
+                    <div class="nav-dropdown-menu nav-dropdown-menu-flowers" role="menu" aria-label="Flowers">
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">Shop</span>
+                            <a href="catalogue.html?section=flowers&amp;group=all-fresh-flowers" role="menuitem">All Fresh Flowers</a>
+                            <a href="catalogue.html?section=flowers&amp;group=recently-viewed" role="menuitem">By Recently viewed</a>
+                            <a href="catalogue.html?section=flowers&amp;group=recommended" role="menuitem">By Recommended</a>
+                        </div>
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">By Style</span>
+                            <a href="catalogue.html?section=flowers&amp;style=bouquets" role="menuitem">Bouquets</a>
+                            <a href="catalogue.html?section=flowers&amp;style=vases" role="menuitem">Vases</a>
+                            <a href="catalogue.html?section=flowers&amp;style=baskets" role="menuitem">Baskets</a>
+                            <a href="catalogue.html?section=flowers&amp;style=pottery" role="menuitem">Pottery</a>
+                            <a href="catalogue.html?section=flowers&amp;style=wreaths" role="menuitem">Wreaths</a>
+                            <a href="catalogue.html?section=flowers&amp;style=metal-buckets" role="menuitem">Metal Buckets</a>
+                            <a href="catalogue.html?section=flowers&amp;style=elegant" role="menuitem">Elegant</a>
+                        </div>
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">By Variety</span>
+                            <a href="catalogue.html?section=flowers&amp;variety=roses" role="menuitem">Roses</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=lilies" role="menuitem">Lilies</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=chrysanthemums" role="menuitem">Chrysanthemums</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=carnations" role="menuitem">Carnations</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=gerberas" role="menuitem">Gerberas</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=sunflowers" role="menuitem">Sunflowers</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=irises" role="menuitem">Irises</a>
+                        </div>
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">By Colour</span>
+                            <a href="catalogue.html?section=flowers&amp;colour=white" role="menuitem">White</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=pink" role="menuitem">Pink</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=red" role="menuitem">Red</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=yellow" role="menuitem">Yellow</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=orange" role="menuitem">Orange</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=cream" role="menuitem">Cream</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=purple" role="menuitem">Purple</a>
+                        </div>
+                    </div>
+                </details>
+                <a href="info.html?topic=contact">Contact</a>
+                <a href="info.html?topic=about">About Us</a>
+            </nav>
+            <div class="account-actions">
+                <a class="account-link" href="login.html">Log in</a>
+                <span class="account-inline-separator">/</span>
+                <a class="account-register-link" href="register.html">Register</a>
             </div>
-            <div id="checkoutItems"></div>
-            <div class="summary-total">Total: <strong id="checkoutTotal">GHc 0.00</strong></div>
-            <button id="placeOrder" class="cart-btn" type="button">Place Order</button>
+        </div>
+    </header>
+
+    <section class="cart-steps" aria-label="Checkout steps">
+        <div class="cart-steps-wrap">
+            <div class="cart-step"><span class="step-box" aria-hidden="true"></span><span>CART</span></div>
+            <div class="cart-step active"><span class="step-box" aria-hidden="true"></span><span>DELIVERY &amp; PAYMENT</span></div>
+            <div class="cart-step"><span class="step-box" aria-hidden="true"></span><span>COMPLETE ORDER</span></div>
+        </div>
+    </section>
+
+    <main class="page-shell">
+        <section class="cart-container checkout-shell">
+            <div class="cart-header">
+                <div class="header-content">
+                    <h1><i class="fas fa-credit-card"></i> Delivery &amp; Payment</h1>
+                    <a href="carts.html" class="continue-shopping">
+                        <i class="fas fa-arrow-left"></i> Back to Cart
+                    </a>
+                </div>
+            </div>
+
+            <div class="checkout-layout">
+                <section class="checkout-main" aria-label="Delivery and payment details">
+                    <article class="checkout-card">
+                        <h2>Delivery Details</h2>
+                        <form id="deliveryForm" class="checkout-form" novalidate>
+                            <div class="form-grid two-col">
+                                <label>
+                                    Full Name
+                                    <input id="checkoutFullName" type="text" placeholder="Enter full name" required>
+                                </label>
+                                <label>
+                                    Phone Number
+                                    <input id="checkoutPhone" type="tel" placeholder="024 XXX XXXX" required>
+                                </label>
+                            </div>
+                            <div class="form-grid two-col">
+                                <label>
+                                    Email Address
+                                    <input id="checkoutEmail" type="email" placeholder="you@example.com" required>
+                                </label>
+                                <label>
+                                    Delivery Date
+                                    <input id="checkoutDate" type="date" required>
+                                </label>
+                            </div>
+                            <label>
+                                Delivery Address
+                                <textarea id="checkoutAddress" rows="3" placeholder="Street, area, landmarks" required></textarea>
+                            </label>
+                            <label>
+                                Order Note (Optional)
+                                <textarea id="checkoutNote" rows="2" placeholder="Card message or delivery instructions"></textarea>
+                            </label>
+                        </form>
+                    </article>
+
+                    <article class="checkout-card">
+                        <h2>Delivery Method</h2>
+                        <div class="shipping-options" role="radiogroup" aria-label="Delivery method">
+                            <label class="shipping-option">
+                                <input type="radio" name="checkoutShippingMethod" value="15" checked>
+                                <span>
+                                    <strong>Standard Delivery</strong>
+                                    <small>Delivered within 24 hours in Accra.</small>
+                                </span>
+                                <em>GHc 15.00</em>
+                            </label>
+                            <label class="shipping-option">
+                                <input type="radio" name="checkoutShippingMethod" value="35">
+                                <span>
+                                    <strong>Express Delivery</strong>
+                                    <small>Delivered in 2-4 hours (selected zones).</small>
+                                </span>
+                                <em>GHc 35.00</em>
+                            </label>
+                            <label class="shipping-option">
+                                <input type="radio" name="checkoutShippingMethod" value="60">
+                                <span>
+                                    <strong>Outside Accra</strong>
+                                    <small>Regional delivery next business day.</small>
+                                </span>
+                                <em>GHc 60.00</em>
+                            </label>
+                        </div>
+                    </article>
+
+                    <article class="checkout-card">
+                        <h2>Payment Method</h2>
+                        <div class="payment-options" role="radiogroup" aria-label="Payment method">
+                            <label class="payment-option">
+                                <input type="radio" name="checkoutPaymentMethod" value="momo" checked>
+                                <span><i class="fas fa-mobile-alt" aria-hidden="true"></i> Mobile Money</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="checkoutPaymentMethod" value="card">
+                                <span><i class="fas fa-credit-card" aria-hidden="true"></i> Debit/Credit Card</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="checkoutPaymentMethod" value="cash">
+                                <span><i class="fas fa-money-bill-wave" aria-hidden="true"></i> Cash on Delivery</span>
+                            </label>
+                        </div>
+                    </article>
+                </section>
+
+                <aside class="cart-summary checkout-summary-pane">
+                    <h3><i class="fas fa-receipt"></i> Order Summary</h3>
+                    <div id="checkoutItems" class="cart-items"></div>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="checkoutSubtotal">GHc 0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="checkoutShipping">GHc 0.00</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="checkoutTotal">GHc 0.00</span>
+                    </div>
+                    <button id="placeOrder" class="checkout-btn" type="button">
+                        <i class="fas fa-check-circle"></i> Place Order
+                    </button>
+                    <a href="carts.html" class="continue-btn">
+                        <i class="fas fa-edit"></i> Edit Cart
+                    </a>
+                </aside>
+            </div>
         </section>
     </main>
     <script src="../js/app.js"></script>

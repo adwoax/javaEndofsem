@@ -3,17 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalogue - Green Aura Nursery</title>
+    <title>Plant Catalogue - Green Aura Nursery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="modern-cart-page carts-page">
+    <div class="promo-bar">
+        Free delivery in Accra on orders above GHc 200 | Same-day dispatch available
+    </div>
+
+    <header class="site-header">
+        <div class="header-top">
+            <a href="../index.html" class="logo-stack" aria-label="green aura nursery" style="text-decoration:none;">
+                <span class="logo-topline">
+                    <span class="logo-main">green</span>
+                    <img class="brand-logo-mark" src="../assets/images/brand-logo.svg" alt="Green Aura Nursery logo">
+                </span>
+                <span class="logo-sub">aura nursery</span>
+            </a>
+            <nav class="top-nav" aria-label="Primary">
+                <a href="../index.html">Home</a>
+                <details class="nav-dropdown">
+                    <summary class="has-arrow">Occasions <span class="arrow">▾</span></summary>
+                    <div class="nav-dropdown-menu" role="menu" aria-label="Occasions">
+                        <a href="catalogue.html?section=occasions&amp;occasion=easter" role="menuitem">Easter</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=anniversary" role="menuitem">Anniversary</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=birthday" role="menuitem">Birthday</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=congratulations" role="menuitem">Congratulations</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=engagement" role="menuitem">Engagement</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=for-her" role="menuitem">For Her</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=for-him" role="menuitem">For Him</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=friendship" role="menuitem">Friendship</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=get-well" role="menuitem">Get Well</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=just-because" role="menuitem">Just Because</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=kids" role="menuitem">Kids</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=love-and-romance" role="menuitem">Love and Romance</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=new-baby" role="menuitem">New Baby</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=new-job" role="menuitem">New Job</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=sympathy" role="menuitem">Sympathy</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=thank-you" role="menuitem">Thank You</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=wedding" role="menuitem">Wedding</a>
+                    </div>
+                </details>
+                <details class="nav-dropdown">
+                    <summary class="has-arrow">Flowers <span class="arrow">▾</span></summary>
+                    <div class="nav-dropdown-menu nav-dropdown-menu-flowers" role="menu" aria-label="Flowers">
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">Shop</span>
+                            <a href="catalogue.html?section=flowers&amp;group=all-fresh-flowers" role="menuitem">All Fresh Flowers</a>
+                            <a href="catalogue.html?section=flowers&amp;group=recently-viewed" role="menuitem">By Recently viewed</a>
+                            <a href="catalogue.html?section=flowers&amp;group=recommended" role="menuitem">By Recommended</a>
+                        </div>
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">By Style</span>
+                            <a href="catalogue.html?section=flowers&amp;style=bouquets" role="menuitem">Bouquets</a>
+                            <a href="catalogue.html?section=flowers&amp;style=vases" role="menuitem">Vases</a>
+                            <a href="catalogue.html?section=flowers&amp;style=baskets" role="menuitem">Baskets</a>
+                            <a href="catalogue.html?section=flowers&amp;style=pottery" role="menuitem">Pottery</a>
+                            <a href="catalogue.html?section=flowers&amp;style=wreaths" role="menuitem">Wreaths</a>
+                            <a href="catalogue.html?section=flowers&amp;style=metal-buckets" role="menuitem">Metal Buckets</a>
+                            <a href="catalogue.html?section=flowers&amp;style=elegant" role="menuitem">Elegant</a>
+                        </div>
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">By Variety</span>
+                            <a href="catalogue.html?section=flowers&amp;variety=roses" role="menuitem">Roses</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=lilies" role="menuitem">Lilies</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=chrysanthemums" role="menuitem">Chrysanthemums</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=carnations" role="menuitem">Carnations</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=gerberas" role="menuitem">Gerberas</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=sunflowers" role="menuitem">Sunflowers</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=irises" role="menuitem">Irises</a>
+                        </div>
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">By Colour</span>
+                            <a href="catalogue.html?section=flowers&amp;colour=white" role="menuitem">White</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=pink" role="menuitem">Pink</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=red" role="menuitem">Red</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=yellow" role="menuitem">Yellow</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=orange" role="menuitem">Orange</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=cream" role="menuitem">Cream</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=purple" role="menuitem">Purple</a>
+                        </div>
+                    </div>
+                </details>
+                <a href="info.html?topic=contact">Contact</a>
+                <a href="info.html?topic=about">About Us</a>
+            </nav>
+            <div class="account-actions">
+                <a class="account-link" href="login.html">Log in</a>
+                <span class="account-inline-separator">/</span>
+                <a class="account-register-link" href="register.html">Register</a>
+            </div>
+        </div>
+        <div class="header-middle">
+            <div class="search-wrap">
+                <input id="searchInput" type="text" placeholder="Search for roses, herbs, succulents...">
+                <button id="searchButton" type="button">Search</button>
+            </div>
+            <button class="cart-btn" id="cartButton" type="button">My Cart (0)</button>
+        </div>
+    </header>
+
     <main class="page-shell">
-        <section class="section-head standalone-head">
-            <h1>Plant Catalogue</h1>
-            <a href="../index.html">Back to home</a>
+        <section class="catalogue-hero">
+            <div class="catalogue-hero-content">
+                <h1><img class="brand-logo-mark" src="../assets/images/brand-logo.svg" alt="Green Aura Nursery logo"> Plant Catalogue</h1>
+                <p class="catalogue-hero-subtext">Discover our curated collection of fresh, healthy plants for every space and style.</p>
+            </div>
         </section>
-        <section id="catalogueProducts" class="products products-catalogue"></section>
+
+        <section class="catalogue-controls">
+            <div class="filters-wrap">
+                <div class="filter-group">
+                    <label for="filterCategory">Category</label>
+                    <select id="filterCategory">
+                        <option value="">All Plants</option>
+                        <option value="flowers">Flowers</option>
+                        <option value="herbs">Herbs</option>
+                        <option value="succulents">Succulents</option>
+                        <option value="trees">Trees</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterPrice">Price Range</label>
+                    <select id="filterPrice">
+                        <option value="">All Prices</option>
+                        <option value="0-50">GHc 0 - GHc 50</option>
+                        <option value="50-100">GHc 50 - GHc 100</option>
+                        <option value="100-200">GHc 100 - GHc 200</option>
+                        <option value="200+">GHc 200+</option>
+                    </select>
+                </div>
+            </div>
+            <div class="sort-wrap">
+                <label for="sortBy">Sort by:</label>
+                <select id="sortBy">
+                    <option value="featured">Featured</option>
+                    <option value="name-asc">Name (A-Z)</option>
+                    <option value="name-desc">Name (Z-A)</option>
+                    <option value="price-asc">Price (Low to High)</option>
+                    <option value="price-desc">Price (High to Low)</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="catalogue-container">
+            <section id="catalogueProducts" class="products products-catalogue" role="region" aria-label="Plant products"></section>
+        </section>
     </main>
+
     <script src="../js/app.js"></script>
 </body>
 </html>

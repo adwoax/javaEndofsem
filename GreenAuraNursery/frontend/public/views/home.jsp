@@ -25,7 +25,16 @@
             align-items: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
-        nav .logo { color: white; font-size: 22px; font-weight: bold; letter-spacing: 1px; }
+        nav .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        nav .logo img { width: 28px; height: 28px; }
         nav .nav-links a {
             color: white;
             text-decoration: none;
@@ -108,7 +117,7 @@
 
 <!-- ===== NAVIGATION ===== -->
 <nav>
-    <div class="logo">🌿 Green Aura Nursery</div>
+    <div class="logo"><img src="http://localhost:5500/assets/images/brand-logo.svg" alt="Green Aura Nursery logo"> Green Aura Nursery</div>
     <div class="nav-links">
         <a href="${pageContext.request.contextPath}/cart">🛒 My Cart</a>
         <c:choose>
@@ -162,7 +171,7 @@
 </div>
 
 <footer>
-    &copy; 2025 Green Aura Nursery. All rights reserved.
+    <img src="http://localhost:5500/assets/images/brand-logo.svg" alt="Green Aura Nursery logo" style="width:16px;height:16px;vertical-align:text-bottom;margin-right:6px;">&copy; 2025 Green Aura Nursery. All rights reserved.
 </footer>
 
 </body>

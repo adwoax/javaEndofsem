@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmation - Green Aura Nursery</title>
+    <title>My Account - Green Aura Nursery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="modern-cart-page carts-page checkout-page confirmation-page">
+<body class="modern-cart-page my-account-page">
     <div class="promo-bar">
-        Your order is being processed | Need assistance? Call 055 676 0450
+        Manage your profile and orders in one place | Need help? Call 055 676 0450
     </div>
 
     <header class="site-header">
@@ -97,79 +100,44 @@
         </div>
     </header>
 
-    <section class="cart-steps" aria-label="Checkout steps">
-        <div class="cart-steps-wrap confirmation-steps-wrap">
-            <div class="cart-step"><span class="step-box" aria-hidden="true"></span><span>CART</span></div>
-            <div class="cart-step"><span class="step-box" aria-hidden="true"></span><span>DELIVERY &amp; PAYMENT</span></div>
-            <div class="cart-step active"><span class="step-box" aria-hidden="true"></span><span>COMPLETE ORDER</span></div>
-        </div>
-    </section>
-
     <main class="page-shell">
-        <section class="cart-container checkout-shell confirmation-shell">
-            <div class="cart-header confirmation-header">
-                <div class="header-content">
-                    <h1><i class="fas fa-check-circle"></i> Complete Order</h1>
-                    <a href="carts.html" class="continue-shopping">
-                        <i class="fas fa-arrow-left"></i> Back to Cart
-                    </a>
-                </div>
-            </div>
+        <section class="account-hero">
+            <h1><i class="fas fa-user-circle" aria-hidden="true"></i> My Account</h1>
+            <p>Review your profile details and account activity in one place.</p>
+        </section>
 
-            <section class="confirmation-card">
-                <div class="success-icon" aria-hidden="true">
-                    <i class="fas fa-check"></i>
+        <section class="account-grid" aria-label="Account details">
+            <article class="account-card account-profile-card">
+                <h2>Profile Details</h2>
+                <div class="account-details-list">
+                    <div class="account-detail-row"><span>Full Name</span><strong id="accountName">Loading...</strong></div>
+                    <div class="account-detail-row"><span>Email</span><strong id="accountEmail">Loading...</strong></div>
+                    <div class="account-detail-row"><span>Phone</span><strong id="accountPhone">Loading...</strong></div>
+                    <div class="account-detail-row"><span>Address</span><strong id="accountAddress">Loading...</strong></div>
+                    <div class="account-detail-row"><span>Status</span><strong id="accountStatus">Loading...</strong></div>
+                    <div class="account-detail-row"><span>Member Since</span><strong id="accountJoined">Loading...</strong></div>
                 </div>
-                <h1>Order Confirmed!</h1>
-                <p>Thank you for your order. We're getting it ready for you.</p>
-                <div class="confirmation-message">
-                    <p id="confirmationMessage">Your order has been successfully placed.</p>
+            </article>
+
+            <article class="account-card">
+                <h2>Order Snapshot</h2>
+                <div class="account-stats-grid">
+                    <div class="account-stat"><span>Total Orders</span><strong id="accountTotalOrders">0</strong></div>
+                    <div class="account-stat"><span>Pending</span><strong id="accountPendingOrders">0</strong></div>
+                    <div class="account-stat"><span>Received</span><strong id="accountReceivedOrders">0</strong></div>
+                    <div class="account-stat"><span>Cancelled</span><strong id="accountCancelledOrders">0</strong></div>
                 </div>
-                <p class="confirmation-subtext">You will receive a confirmation email shortly with tracking information.</p>
-
-                <section class="order-overview" aria-label="Order overview">
-                    <div class="order-stats-grid">
-                        <article class="order-stat-card">
-                            <h4>Total Orders</h4>
-                            <p id="ordersTotalCount">0</p>
-                        </article>
-                        <article class="order-stat-card">
-                            <h4>Received</h4>
-                            <p id="ordersReceivedCount">0</p>
-                        </article>
-                        <article class="order-stat-card">
-                            <h4>Pending</h4>
-                            <p id="ordersPendingCount">0</p>
-                        </article>
-                        <article class="order-stat-card">
-                            <h4>Cancelled</h4>
-                            <p id="ordersCancelledCount">0</p>
-                        </article>
-                    </div>
-
-                    <div class="orders-history-wrap">
-                        <h3>Your Orders</h3>
-                        <div id="orderHistoryList" class="order-history-list">
-                            <p class="order-history-empty">No orders yet.</p>
-                        </div>
-                        <p class="order-policy-note">Cancellation policy: Pending orders can be cancelled within 30 minutes after placement.</p>
-                    </div>
-                </section>
-
-                <div class="confirmation-actions">
-                    <a href="../index.html" class="checkout-btn">
-                        <i class="fas fa-home"></i> Back to Home
-                    </a>
-                    <a href="catalogue.html" class="continue-btn">
-                        <i class="fas fa-shopping-bag"></i> Continue Shopping
-                    </a>
-                    <a href="staff-orders.html" class="continue-btn">
-                        <i class="fas fa-user-shield"></i> Staff Dashboard
-                    </a>
+                <div id="accountSummary" class="account-summary-note">
+                    <p>Loading account summary...</p>
                 </div>
-            </section>
+                <div class="account-actions-row">
+                    <a href="my-orders.html" class="checkout-btn"><i class="fas fa-clipboard-list"></i> View My Orders</a>
+                    <a href="carts.html" class="continue-btn"><i class="fas fa-shopping-cart"></i> Open Cart</a>
+                </div>
+            </article>
         </section>
     </main>
+
     <script src="../js/app.js"></script>
 </body>
 </html>

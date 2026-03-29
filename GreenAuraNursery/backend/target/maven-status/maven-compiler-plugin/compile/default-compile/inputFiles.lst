@@ -18,6 +18,8 @@ C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\
 C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\controller\LoginResponse.java
 C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\controller\LogoutController.java
 C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\controller\LogoutResponse.java
+C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\controller\OrdersController.java
+C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\controller\OrdersResponse.java
 C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\controller\RegisterController.java
 C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\controller\RegisterRequest.java
 C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\controller\RegisterResponse.java
@@ -28,6 +30,7 @@ C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\
 C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\GreenAuraApplication.java
 C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\model\CartItem.java
 C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\model\Order.java
+C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\model\OrderHistoryItem.java
 C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\model\Plant.java
 C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\model\User.java
 C:\Users\User\javaEndofsem\GreenAuraNursery\backend\src\main\java\com\greenaura\repository\CartRepository.java

@@ -1,6 +1,7 @@
 com\greenaura\model\Order.class
 com\greenaura\controller\RegisterController.class
 com\greenaura\controller\ApiResponse.class
+com\greenaura\controller\OrdersController.class
 com\greenaura\controller\CatalogueController.class
 com\greenaura\controller\CatalogueResponse.class
 com\greenaura\controller\LoginController.class
@@ -15,6 +16,7 @@ com\greenaura\config\WebConfig.class
 com\greenaura\controller\ConfirmationResponse.class
 com\greenaura\controller\CheckoutResponse.class
 com\greenaura\controller\RegisterRequest.class
+com\greenaura\model\OrderHistoryItem.class
 com\greenaura\model\Plant.class
 com\greenaura\controller\ConfirmationController.class
 com\greenaura\dao\UserDAO.class
@@ -26,6 +28,7 @@ com\greenaura\dao\OrderDAO.class
 com\greenaura\repository\OrderRepository.class
 com\greenaura\GreenAuraApplication.class
 com\greenaura\controller\CartController.class
+com\greenaura\controller\OrdersResponse.class
 com\greenaura\controller\RegisterResponse.class
 com\greenaura\controller\AddToCartRequest.class
 com\greenaura\model\CartItem.class

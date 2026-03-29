@@ -1,10 +1,12 @@
 package com.greenaura.dao;
 
 import com.greenaura.model.CartItem;
+import com.greenaura.model.OrderHistoryItem;
 import com.greenaura.util.DBConnection;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +34,8 @@ import java.util.List;
 @Component
 public class OrderDAO {
 
+    private static final int CANCELLATION_WINDOW_MINUTES = 30;
+
     /**
      * Places an order by:
      *  1. Inserting a row into the `orders` table
@@ -45,7 +49,7 @@ public class OrderDAO {
      * @return true if the order was placed successfully
      */
     public boolean placeOrder(int userId, List<CartItem> cartItems, double total) {
-        String orderSql     = "INSERT INTO orders (userId, totalPrice) VALUES (?, ?)";
+        String orderSql     = "INSERT INTO orders (userId, totalPrice, status) VALUES (?, ?, 'PENDING')";
         String orderItemSql = "INSERT INTO order_items (orderId, plantId, quantity, price) " +
                               "VALUES (?, ?, ?, ?)";
 
@@ -114,5 +118,136 @@ public class OrderDAO {
                 e.printStackTrace();
             }
         }
+    }
+
+    public List<OrderHistoryItem> findOrdersByUserId(int userId) {
+        String sql = "SELECT o.id, o.totalPrice, o.orderDate, COALESCE(o.status, 'PENDING') AS status, " +
+            "COALESCE(SUM(oi.quantity), 0) AS itemCount " +
+            "FROM orders o " +
+            "LEFT JOIN order_items oi ON oi.orderId = o.id " +
+            "WHERE o.userId = ? " +
+            "GROUP BY o.id, o.totalPrice, o.orderDate, o.status " +
+            "ORDER BY o.orderDate DESC";
+
+        List<OrderHistoryItem> orders = new ArrayList<>();
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Timestamp orderDate = rs.getTimestamp("orderDate");
+                String status = rs.getString("status");
+                boolean canCancel = isCancellableStatus(status) && withinCancellationWindow(orderDate);
+
+                OrderHistoryItem item = new OrderHistoryItem(
+                    rs.getInt("id"),
+                    rs.getDouble("totalPrice"),
+                    orderDate,
+                    status,
+                    rs.getInt("itemCount"),
+                    canCancel
+                );
+                orders.add(item);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("ERROR in findOrdersByUserId: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return orders;
+    }
+
+    public List<OrderHistoryItem> findAllOrders() {
+        String sql = "SELECT o.id, o.totalPrice, o.orderDate, COALESCE(o.status, 'PENDING') AS status, " +
+            "COALESCE(SUM(oi.quantity), 0) AS itemCount " +
+            "FROM orders o " +
+            "LEFT JOIN order_items oi ON oi.orderId = o.id " +
+            "GROUP BY o.id, o.totalPrice, o.orderDate, o.status " +
+            "ORDER BY o.orderDate DESC";
+
+        List<OrderHistoryItem> orders = new ArrayList<>();
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Timestamp orderDate = rs.getTimestamp("orderDate");
+                String status = rs.getString("status");
+                boolean canCancel = isCancellableStatus(status) && withinCancellationWindow(orderDate);
+
+                OrderHistoryItem item = new OrderHistoryItem(
+                    rs.getInt("id"),
+                    rs.getDouble("totalPrice"),
+                    orderDate,
+                    status,
+                    rs.getInt("itemCount"),
+                    canCancel
+                );
+                orders.add(item);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("ERROR in findAllOrders: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return orders;
+    }
+
+    public boolean markOrderReceived(int orderId) {
+        String sql = "UPDATE orders " +
+            "SET status = 'RECEIVED' " +
+            "WHERE id = ? " +
+            "AND COALESCE(status, 'PENDING') = 'PENDING'";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, orderId);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.out.println("ERROR in markOrderReceived: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean cancelOrderIfAllowed(int userId, int orderId) {
+        String sql = "UPDATE orders " +
+            "SET status = 'CANCELLED' " +
+            "WHERE id = ? " +
+            "AND userId = ? " +
+            "AND COALESCE(status, 'PENDING') = 'PENDING' " +
+            "AND orderDate >= (CURRENT_TIMESTAMP - INTERVAL '" + CANCELLATION_WINDOW_MINUTES + " minutes')";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, orderId);
+            stmt.setInt(2, userId);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.out.println("ERROR in cancelOrderIfAllowed: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private boolean isCancellableStatus(String status) {
+        return "PENDING".equalsIgnoreCase(String.valueOf(status));
+    }
+
+    private boolean withinCancellationWindow(Timestamp orderDate) {
+        if (orderDate == null) {
+            return false;
+        }
+        long orderTime = orderDate.getTime();
+        long cutoffMillis = CANCELLATION_WINDOW_MINUTES * 60L * 1000L;
+        long age = System.currentTimeMillis() - orderTime;
+        return age >= 0 && age <= cutoffMillis;
     }
 }

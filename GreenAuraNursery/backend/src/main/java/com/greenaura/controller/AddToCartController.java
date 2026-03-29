@@ -35,4 +35,23 @@ public class AddToCartController {
         AddToCartResponse response = new AddToCartResponse("Plant added to your cart!", true, "/api/catalogue?added=true");
         return new ApiResponse<>("success", "Plant added to cart", response);
     }
+
+    @PostMapping("/removeFromCart")
+    public ApiResponse<AddToCartResponse> removeFromCart(@RequestBody AddToCartRequest request, HttpSession session) {
+        User loggedInUser = (User) session.getAttribute("loggedInUser");
+        if (loggedInUser == null) {
+            AddToCartResponse response = new AddToCartResponse("Not authenticated", false, "/api/register");
+            return new ApiResponse<>("error", "Not authenticated", response);
+        }
+
+        Integer plantId = request.getPlantId();
+        if (plantId == null) {
+            AddToCartResponse response = new AddToCartResponse("Invalid plant ID", false, "/api/catalogue");
+            return new ApiResponse<>("error", "Invalid plant ID", response);
+        }
+
+        cartService.removeFromCart(loggedInUser.getId(), plantId);
+        AddToCartResponse response = new AddToCartResponse("Plant removed from your cart.", true, "/api/catalogue?removed=true");
+        return new ApiResponse<>("success", "Plant removed from cart", response);
+    }
 }

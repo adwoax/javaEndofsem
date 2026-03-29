@@ -4,18 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart - Green Aura Nursery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <main class="page-shell">
-        <section class="summary-card">
-            <div class="section-head standalone-head">
-                <h1>Your Cart</h1>
-                <a href="../index.html">Continue shopping</a>
+<body class="modern-cart-page">
+    <div class="promo-bar">
+        Free delivery in Accra on orders above GHc 200 | Same-day dispatch available
+    </div>
+
+    <header class="site-header">
+        <div class="header-top">
+            <a href="../index.html" class="logo-stack" aria-label="green aura nursery" style="text-decoration:none;">
+                <span class="logo-topline">
+                    <span class="logo-main">green</span>
+                    <img class="brand-logo-mark" src="../assets/images/brand-logo.svg" alt="Green Aura Nursery logo">
+                </span>
+                <span class="logo-sub">aura nursery</span>
+            </a>
+            <nav class="top-nav" aria-label="Primary">
+                <a href="../index.html">Home</a>
+                <details class="nav-dropdown">
+                    <summary class="has-arrow">Occasions <span class="arrow">▾</span></summary>
+                    <div class="nav-dropdown-menu" role="menu" aria-label="Occasions">
+                        <a href="catalogue.html?section=occasions&amp;occasion=easter" role="menuitem">Easter</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=anniversary" role="menuitem">Anniversary</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=birthday" role="menuitem">Birthday</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=congratulations" role="menuitem">Congratulations</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=engagement" role="menuitem">Engagement</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=for-her" role="menuitem">For Her</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=for-him" role="menuitem">For Him</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=friendship" role="menuitem">Friendship</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=get-well" role="menuitem">Get Well</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=just-because" role="menuitem">Just Because</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=kids" role="menuitem">Kids</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=love-and-romance" role="menuitem">Love and Romance</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=new-baby" role="menuitem">New Baby</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=new-job" role="menuitem">New Job</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=sympathy" role="menuitem">Sympathy</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=thank-you" role="menuitem">Thank You</a>
+                        <a href="catalogue.html?section=occasions&amp;occasion=wedding" role="menuitem">Wedding</a>
+                    </div>
+                </details>
+                <details class="nav-dropdown">
+                    <summary class="has-arrow">Flowers <span class="arrow">▾</span></summary>
+                    <div class="nav-dropdown-menu nav-dropdown-menu-flowers" role="menu" aria-label="Flowers">
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">Shop</span>
+                            <a href="catalogue.html?section=flowers&amp;group=all-fresh-flowers" role="menuitem">All Fresh Flowers</a>
+                            <a href="catalogue.html?section=flowers&amp;group=recently-viewed" role="menuitem">By Recently viewed</a>
+                            <a href="catalogue.html?section=flowers&amp;group=recommended" role="menuitem">By Recommended</a>
+                        </div>
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">By Style</span>
+                            <a href="catalogue.html?section=flowers&amp;style=bouquets" role="menuitem">Bouquets</a>
+                            <a href="catalogue.html?section=flowers&amp;style=vases" role="menuitem">Vases</a>
+                            <a href="catalogue.html?section=flowers&amp;style=baskets" role="menuitem">Baskets</a>
+                            <a href="catalogue.html?section=flowers&amp;style=pottery" role="menuitem">Pottery</a>
+                            <a href="catalogue.html?section=flowers&amp;style=wreaths" role="menuitem">Wreaths</a>
+                            <a href="catalogue.html?section=flowers&amp;style=metal-buckets" role="menuitem">Metal Buckets</a>
+                            <a href="catalogue.html?section=flowers&amp;style=elegant" role="menuitem">Elegant</a>
+                        </div>
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">By Variety</span>
+                            <a href="catalogue.html?section=flowers&amp;variety=roses" role="menuitem">Roses</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=lilies" role="menuitem">Lilies</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=chrysanthemums" role="menuitem">Chrysanthemums</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=carnations" role="menuitem">Carnations</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=gerberas" role="menuitem">Gerberas</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=sunflowers" role="menuitem">Sunflowers</a>
+                            <a href="catalogue.html?section=flowers&amp;variety=irises" role="menuitem">Irises</a>
+                        </div>
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">By Colour</span>
+                            <a href="catalogue.html?section=flowers&amp;colour=white" role="menuitem">White</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=pink" role="menuitem">Pink</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=red" role="menuitem">Red</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=yellow" role="menuitem">Yellow</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=orange" role="menuitem">Orange</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=cream" role="menuitem">Cream</a>
+                            <a href="catalogue.html?section=flowers&amp;colour=purple" role="menuitem">Purple</a>
+                        </div>
+                    </div>
+                </details>
+                <a href="info.html?topic=contact">Contact</a>
+                <a href="info.html?topic=about">About Us</a>
+            </nav>
+            <div class="account-actions">
+                <a class="account-link" href="login.html">Log in</a>
+                <span class="account-inline-separator">/</span>
+                <a class="account-register-link" href="register.html">Register</a>
             </div>
-            <div id="cartItems"></div>
-            <div class="summary-total">Total: <strong id="cartTotal">GHc 0.00</strong></div>
-            <button id="goCheckout" class="cart-btn" type="button">Proceed to Checkout</button>
+        </div>
+    </header>
+
+    <section class="breadcrumb-strip" aria-label="Cart heading strip">
+        <div class="breadcrumb-wrap cart-crumb-wrap">
+            <div class="cart-crumb-left">
+                <a href="../index.html" class="cart-home-link" aria-label="Go to home page">
+                    <span class="cart-home-glyph" aria-hidden="true">⌂</span>
+                </a>
+                <span>Your Cart</span>
+            </div>
+            <div class="cart-crumb-actions">
+                <a href="carts.html" class="cart-view-link">
+                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    <span>View Carts</span>
+                </a>
+                <a href="../index.html" class="cart-crumb-right">
+                    <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                    <span>Continue Shopping</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <main class="page-shell">
+        <section class="cart-container cart-detail-container">
+            <article class="detail-card" aria-label="Product details">
+                <div class="detail-media">
+                    <div class="detail-visual-frame" role="img" aria-label="Flower arrangement preview">
+                        <span class="detail-badge">Signature Collection</span>
+                        <div class="detail-bloom-mark">
+                            <i class="fas fa-seedling" aria-hidden="true"></i>
+                        </div>
+                        <img id="detailPlantImage" class="detail-plant-image" src="../assets/images/greenaura.webp" alt="Selected plant" hidden>
+                        <p class="detail-image-label">Flower image</p>
+                        <small>Hand-tied in Accra, wrapped in eco kraft paper</small>
+                    </div>
+                </div>
+
+                <div class="detail-info">
+                    <p class="detail-kicker">Modern Romance</p>
+                    <h1 class="detail-title">flower name</h1>
+                    <p class="detail-description">
+                        Celebrate a connection that stands the test of time with Unbreakable Bond, a signature arrangement designed to honor life's most profound and lasting relationships. This display brings berry, limonium, gerbera and rose accents together in a graceful celebration of love.
+                    </p>
+
+                    <label class="detail-label" for="bouquetSize">SELECT YOUR BOUQUET SIZE</label>
+                    <select id="bouquetSize" class="detail-input detail-select" name="bouquetSize">
+                        <option value="classic" data-multiplier="1">Classic Charm + GHc 955.00</option>
+                        <option value="premium" data-multiplier="1.2">Premium Bloom + GHc 1,155.00</option>
+                        <option value="grand" data-multiplier="1.4">Grand Signature + GHc 1,355.00</option>
+                    </select>
+
+                    <label class="detail-label" for="personalMessage">ADD A PERSONALIZED MESSAGE</label>
+                    <textarea id="personalMessage" class="detail-input detail-textarea" name="personalMessage" rows="3"></textarea>
+
+                    <label class="detail-label" for="deliveryDate">DELIVERY DATE</label>
+                    <input id="deliveryDate" class="detail-input" name="deliveryDate" type="date">
+
+                    <div class="detail-purchase-row">
+                        <span class="detail-price">GHc 955.00</span>
+                        <div class="detail-qty" aria-label="Quantity selector">
+                            <button type="button" class="detail-qty-btn" aria-label="Decrease quantity">-</button>
+                            <input type="number" class="detail-qty-input" value="1" min="1" aria-label="Quantity">
+                            <button type="button" class="detail-qty-btn" aria-label="Increase quantity">+</button>
+                        </div>
+                    </div>
+
+                    <button id="addSelectedToCart" class="detail-add-btn" type="button">ADD TO CART</button>
+                    <p class="detail-footnote">Free same-day delivery in Accra for orders above GHc 200.</p>
+                </div>
+            </article>
+
+            <section class="cart-live-region is-collapsed" id="cartLiveRegion" aria-label="Cart items" hidden aria-hidden="true">
+                <div class="cart-live-header">
+                    <h2>My Carts</h2>
+                </div>
+                <div id="cartItems" class="cart-items"></div>
+                <div class="cart-summary cart-live-summary">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="cartSubtotal">GHc 0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="cartShipping">GHc 0.00</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="cartTotal">GHc 0.00</span>
+                    </div>
+                </div>
+                <button id="goCheckout" class="checkout-btn" type="button">Secure Checkout</button>
+            </section>
         </section>
     </main>
     <script src="../js/app.js"></script>

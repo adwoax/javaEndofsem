@@ -20,7 +20,15 @@
             background: #2e7d32; padding: 15px 30px;
             display: flex; justify-content: space-between; align-items: center;
         }
-        nav .logo { color: white; font-size: 22px; font-weight: bold; }
+        nav .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        nav .logo img { width: 28px; height: 28px; }
         nav a { color: white; text-decoration: none; margin-left: 20px;
                 padding: 8px 16px; border-radius: 20px; }
         nav a:hover { background: rgba(255,255,255,0.2); }
@@ -85,7 +93,7 @@
 
 <!-- NAVIGATION -->
 <nav>
-    <div class="logo">🌿 Green Aura Nursery</div>
+    <div class="logo"><img src="http://localhost:5500/assets/images/brand-logo.svg" alt="Green Aura Nursery logo"> Green Aura Nursery</div>
     <div>
         <a href="${pageContext.request.contextPath}/catalogue">Catalogue</a>
         <a href="${pageContext.request.contextPath}/logout">Logout</a>
@@ -150,6 +158,6 @@
 
 </div>
 
-<footer>&copy; 2025 Green Aura Nursery</footer>
+<footer><img src="http://localhost:5500/assets/images/brand-logo.svg" alt="Green Aura Nursery logo" style="width:16px;height:16px;vertical-align:text-bottom;margin-right:6px;">&copy; 2025 Green Aura Nursery</footer>
 </body>
 </html>

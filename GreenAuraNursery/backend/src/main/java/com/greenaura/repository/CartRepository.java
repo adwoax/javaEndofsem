@@ -18,6 +18,10 @@ public class CartRepository {
         cartDAO.addToCart(userId, plantId);
     }
 
+    public void removeFromCart(int userId, int plantId) {
+        cartDAO.removeFromCart(userId, plantId);
+    }
+
     public List<CartItem> findCartItemsByUserId(int userId) {
         return cartDAO.getCartItems(userId);
     }

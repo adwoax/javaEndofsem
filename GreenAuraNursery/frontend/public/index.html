@@ -17,17 +17,79 @@
     <header class="site-header">
         <div class="header-top">
             <div class="logo-stack" aria-label="green aura nursery">
-                <span>green</span>
-                <span>aura nursery</span>
+                <span class="logo-topline">
+                    <span class="logo-main">green</span>
+                    <img class="brand-logo-mark" src="assets/images/brand-logo.svg" alt="Green Aura Nursery logo">
+                </span>
+                <span class="logo-sub">aura nursery</span>
             </div>
             <nav class="top-nav">
-                <a href="views/catalogue.html?section=occasions" class="has-arrow">Occasions <span class="arrow">▾</span></a>
-                <a href="views/catalogue.html?section=flowers" class="has-arrow">Flowers <span class="arrow">▾</span></a>
-                <a href="views/catalogue.html?section=hampers" class="has-arrow">Hampers & Gifts <span class="arrow">▾</span></a>
-                <a href="views/catalogue.html?section=more" class="has-arrow">More <span class="arrow">▾</span></a>
-                <a href="views/catalogue.html?sort=price" class="has-arrow">Price <span class="arrow">▾</span></a>
-                <a href="views/info.html?topic=vouchers">Vouchers</a>
-                <a href="views/info.html?topic=corporate">Corporate</a>
+                <a href="index.html">Home</a>
+                <details class="nav-dropdown">
+                    <summary class="has-arrow">Occasions <span class="arrow">▾</span></summary>
+                    <div class="nav-dropdown-menu" role="menu" aria-label="Occasions">
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=easter" role="menuitem">Easter</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=anniversary" role="menuitem">Anniversary</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=birthday" role="menuitem">Birthday</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=congratulations" role="menuitem">Congratulations</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=engagement" role="menuitem">Engagement</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=for-her" role="menuitem">For Her</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=for-him" role="menuitem">For Him</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=friendship" role="menuitem">Friendship</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=get-well" role="menuitem">Get Well</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=just-because" role="menuitem">Just Because</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=kids" role="menuitem">Kids</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=love-and-romance" role="menuitem">Love and Romance</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=new-baby" role="menuitem">New Baby</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=new-job" role="menuitem">New Job</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=sympathy" role="menuitem">Sympathy</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=thank-you" role="menuitem">Thank You</a>
+                        <a href="views/catalogue.html?section=occasions&amp;occasion=wedding" role="menuitem">Wedding</a>
+                    </div>
+                </details>
+                <details class="nav-dropdown">
+                    <summary class="has-arrow">Flowers <span class="arrow">▾</span></summary>
+                    <div class="nav-dropdown-menu nav-dropdown-menu-flowers" role="menu" aria-label="Flowers">
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">Shop</span>
+                            <a href="views/catalogue.html?section=flowers&amp;group=all-fresh-flowers" role="menuitem">All Fresh Flowers</a>
+                            <a href="views/catalogue.html?section=flowers&amp;group=recently-viewed" role="menuitem">By Recently viewed</a>
+                            <a href="views/catalogue.html?section=flowers&amp;group=recommended" role="menuitem">By Recommended</a>
+                        </div>
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">By Style</span>
+                            <a href="views/catalogue.html?section=flowers&amp;style=bouquets" role="menuitem">Bouquets</a>
+                            <a href="views/catalogue.html?section=flowers&amp;style=vases" role="menuitem">Vases</a>
+                            <a href="views/catalogue.html?section=flowers&amp;style=baskets" role="menuitem">Baskets</a>
+                            <a href="views/catalogue.html?section=flowers&amp;style=pottery" role="menuitem">Pottery</a>
+                            <a href="views/catalogue.html?section=flowers&amp;style=wreaths" role="menuitem">Wreaths</a>
+                            <a href="views/catalogue.html?section=flowers&amp;style=metal-buckets" role="menuitem">Metal Buckets</a>
+                            <a href="views/catalogue.html?section=flowers&amp;style=elegant" role="menuitem">Elegant</a>
+                        </div>
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">By Variety</span>
+                            <a href="views/catalogue.html?section=flowers&amp;variety=roses" role="menuitem">Roses</a>
+                            <a href="views/catalogue.html?section=flowers&amp;variety=lilies" role="menuitem">Lilies</a>
+                            <a href="views/catalogue.html?section=flowers&amp;variety=chrysanthemums" role="menuitem">Chrysanthemums</a>
+                            <a href="views/catalogue.html?section=flowers&amp;variety=carnations" role="menuitem">Carnations</a>
+                            <a href="views/catalogue.html?section=flowers&amp;variety=gerberas" role="menuitem">Gerberas</a>
+                            <a href="views/catalogue.html?section=flowers&amp;variety=sunflowers" role="menuitem">Sunflowers</a>
+                            <a href="views/catalogue.html?section=flowers&amp;variety=irises" role="menuitem">Irises</a>
+                        </div>
+                        <div class="nav-dropdown-group">
+                            <span class="nav-dropdown-group-title">By Colour</span>
+                            <a href="views/catalogue.html?section=flowers&amp;colour=white" role="menuitem">White</a>
+                            <a href="views/catalogue.html?section=flowers&amp;colour=pink" role="menuitem">Pink</a>
+                            <a href="views/catalogue.html?section=flowers&amp;colour=red" role="menuitem">Red</a>
+                            <a href="views/catalogue.html?section=flowers&amp;colour=yellow" role="menuitem">Yellow</a>
+                            <a href="views/catalogue.html?section=flowers&amp;colour=orange" role="menuitem">Orange</a>
+                            <a href="views/catalogue.html?section=flowers&amp;colour=cream" role="menuitem">Cream</a>
+                            <a href="views/catalogue.html?section=flowers&amp;colour=purple" role="menuitem">Purple</a>
+                        </div>
+                    </div>
+                </details>
+                <a href="views/info.html?topic=contact">Contact</a>
+                <a href="views/info.html?topic=about">About Us</a>
             </nav>
             <div class="account-actions">
                 <a class="account-link" href="views/login.html">Log in</a>
@@ -142,7 +204,7 @@
             <ul>
                 <li><a href="views/register.html">Register</a></li>
                 <li><a href="views/login.html">Log in</a></li>
-                <li><a href="views/cart.html">My Account</a></li>
+                <li><a href="views/my-account.html">My Account</a></li>
                 <li><a href="views/info.html?topic=corporates">Corporates</a></li>
                 <li><a href="views/info.html?topic=reminder-service">Reminder Service</a></li>
                 <li><a href="views/info.html?topic=refer-friends">Refer Friends &amp; Win</a></li>
@@ -194,7 +256,7 @@
     </section>
 
     <footer>
-        <p>Copyright &copy; 2024 Green Aura Nursery - Bringing Life To Every Garden. All rights reserved.</p>
+        <p><img class="inline-brand-logo" src="assets/images/brand-logo.svg" alt="Green Aura Nursery logo"> Copyright &copy; 2024 Green Aura Nursery - Bringing Life To Every Garden. All rights reserved.</p>
         <div class="payment-row" aria-label="Payment methods">
             <span>VISA</span>
             <span>Mastercard</span>

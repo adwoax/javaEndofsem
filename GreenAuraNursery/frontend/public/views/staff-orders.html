@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmation - Green Aura Nursery</title>
+    <title>Staff Orders - Green Aura Nursery</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="modern-cart-page carts-page checkout-page confirmation-page">
+<body class="modern-cart-page carts-page checkout-page staff-orders-page">
     <div class="promo-bar">
-        Your order is being processed | Need assistance? Call 055 676 0450
+        Staff Console | Mark pending orders as received after successful delivery
     </div>
 
     <header class="site-header">
@@ -97,7 +97,7 @@
         </div>
     </header>
 
-    <section class="cart-steps" aria-label="Checkout steps">
+    <section class="cart-steps" aria-label="Order flow steps">
         <div class="cart-steps-wrap confirmation-steps-wrap">
             <div class="cart-step"><span class="step-box" aria-hidden="true"></span><span>CART</span></div>
             <div class="cart-step"><span class="step-box" aria-hidden="true"></span><span>DELIVERY &amp; PAYMENT</span></div>
@@ -109,67 +109,48 @@
         <section class="cart-container checkout-shell confirmation-shell">
             <div class="cart-header confirmation-header">
                 <div class="header-content">
-                    <h1><i class="fas fa-check-circle"></i> Complete Order</h1>
-                    <a href="carts.html" class="continue-shopping">
-                        <i class="fas fa-arrow-left"></i> Back to Cart
+                    <h1><i class="fas fa-user-shield"></i> Staff Order Management</h1>
+                    <a href="../index.html" class="continue-shopping">
+                        <i class="fas fa-home"></i> Home
                     </a>
                 </div>
             </div>
 
             <section class="confirmation-card">
-                <div class="success-icon" aria-hidden="true">
-                    <i class="fas fa-check"></i>
-                </div>
-                <h1>Order Confirmed!</h1>
-                <p>Thank you for your order. We're getting it ready for you.</p>
-                <div class="confirmation-message">
-                    <p id="confirmationMessage">Your order has been successfully placed.</p>
-                </div>
-                <p class="confirmation-subtext">You will receive a confirmation email shortly with tracking information.</p>
+                <p class="confirmation-subtext">Review all orders and mark fulfilled deliveries as received.</p>
 
                 <section class="order-overview" aria-label="Order overview">
                     <div class="order-stats-grid">
                         <article class="order-stat-card">
                             <h4>Total Orders</h4>
-                            <p id="ordersTotalCount">0</p>
+                            <p id="staffOrdersTotalCount">0</p>
                         </article>
                         <article class="order-stat-card">
                             <h4>Received</h4>
-                            <p id="ordersReceivedCount">0</p>
+                            <p id="staffOrdersReceivedCount">0</p>
                         </article>
                         <article class="order-stat-card">
                             <h4>Pending</h4>
-                            <p id="ordersPendingCount">0</p>
+                            <p id="staffOrdersPendingCount">0</p>
                         </article>
                         <article class="order-stat-card">
                             <h4>Cancelled</h4>
-                            <p id="ordersCancelledCount">0</p>
+                            <p id="staffOrdersCancelledCount">0</p>
                         </article>
                     </div>
 
                     <div class="orders-history-wrap">
-                        <h3>Your Orders</h3>
-                        <div id="orderHistoryList" class="order-history-list">
-                            <p class="order-history-empty">No orders yet.</p>
+                        <h3>All Customer Orders</h3>
+                        <div id="staffOrderHistoryList" class="order-history-list">
+                            <p class="order-history-empty">No orders available.</p>
                         </div>
-                        <p class="order-policy-note">Cancellation policy: Pending orders can be cancelled within 30 minutes after placement.</p>
+                        <p class="order-policy-note">Only orders with status PENDING can be marked as RECEIVED.</p>
                     </div>
                 </section>
-
-                <div class="confirmation-actions">
-                    <a href="../index.html" class="checkout-btn">
-                        <i class="fas fa-home"></i> Back to Home
-                    </a>
-                    <a href="catalogue.html" class="continue-btn">
-                        <i class="fas fa-shopping-bag"></i> Continue Shopping
-                    </a>
-                    <a href="staff-orders.html" class="continue-btn">
-                        <i class="fas fa-user-shield"></i> Staff Dashboard
-                    </a>
-                </div>
             </section>
         </section>
     </main>
+
     <script src="../js/app.js"></script>
 </body>
 </html>

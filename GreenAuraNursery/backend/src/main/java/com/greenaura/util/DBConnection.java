@@ -17,6 +17,7 @@ import java.util.Map;
 public class DBConnection {
 
     private static final Map<String, String> FILE_CONFIG = loadEnvFileConfig();
+    private static final boolean PREFER_SUPABASE_CREDENTIALS = shouldPreferSupabaseCredentials();
 
     // Override on each device/server using environment variables.
     // Priority order:
@@ -24,17 +25,29 @@ public class DBConnection {
     // 2) SUPABASE_DB_HOST / SUPABASE_DB_PORT / SUPABASE_DB_NAME / SUPABASE_DB_USER / SUPABASE_DB_PASSWORD
     private static final String URL = resolveJdbcUrl();
     private static final String USERNAME =
-        firstNonBlank(
-            getConfig("GREENAURA_DB_USER"),
-            getConfig("SUPABASE_DB_USER"),
-            "postgres"
-        );
+        PREFER_SUPABASE_CREDENTIALS
+            ? firstNonBlank(
+                getConfig("SUPABASE_DB_USER"),
+                getConfig("GREENAURA_DB_USER"),
+                "postgres"
+            )
+            : firstNonBlank(
+                getConfig("GREENAURA_DB_USER"),
+                getConfig("SUPABASE_DB_USER"),
+                "postgres"
+            );
     private static final String PASSWORD =
-        firstNonBlank(
-            getConfig("GREENAURA_DB_PASSWORD"),
-            getConfig("SUPABASE_DB_PASSWORD"),
-            "postgres"
-        );
+        PREFER_SUPABASE_CREDENTIALS
+            ? firstNonBlank(
+                getConfig("SUPABASE_DB_PASSWORD"),
+                getConfig("GREENAURA_DB_PASSWORD"),
+                "postgres"
+            )
+            : firstNonBlank(
+                getConfig("GREENAURA_DB_PASSWORD"),
+                getConfig("SUPABASE_DB_PASSWORD"),
+                "postgres"
+            );
 
     private static volatile boolean initialized = false;
     private static volatile boolean configLogged = false;
@@ -72,14 +85,18 @@ public class DBConnection {
 
     private static String resolveJdbcUrl() {
         String directUrl = firstNonBlank(getConfig("GREENAURA_DB_URL"), null);
-        if (directUrl != null) {
-            return normalizeJdbcUrl(directUrl);
-        }
-
         String host = firstNonBlank(getConfig("SUPABASE_DB_HOST"), null);
         String port = firstNonBlank(getConfig("SUPABASE_DB_PORT"), "5432");
         String dbName = firstNonBlank(getConfig("SUPABASE_DB_NAME"), "postgres");
         String sslMode = firstNonBlank(getConfig("GREENAURA_DB_SSLMODE"), "require");
+
+        if (directUrl != null) {
+            String normalizedDirectUrl = normalizeJdbcUrl(directUrl);
+            // If a stale local URL is set globally, prefer Supabase config when present.
+            if (!shouldPreferSupabaseOverDirectUrl(normalizedDirectUrl, host)) {
+                return normalizedDirectUrl;
+            }
+        }
 
         if (host != null) {
             return "jdbc:postgresql://" + host + ":" + port + "/" + dbName + "?sslmode=" + sslMode;
@@ -108,6 +125,32 @@ public class DBConnection {
         }
         String sslMode = firstNonBlank(getConfig("GREENAURA_DB_SSLMODE"), "require");
         return jdbcUrl + (jdbcUrl.contains("?") ? "&" : "?") + "sslmode=" + sslMode;
+    }
+
+    private static boolean shouldPreferSupabaseCredentials() {
+        String host = firstNonBlank(getConfig("SUPABASE_DB_HOST"), null);
+        String directUrl = firstNonBlank(getConfig("GREENAURA_DB_URL"), null);
+        if (host == null || directUrl == null) {
+            return false;
+        }
+        return shouldPreferSupabaseOverDirectUrl(normalizeJdbcUrl(directUrl), host);
+    }
+
+    private static boolean shouldPreferSupabaseOverDirectUrl(String normalizedDirectUrl, String supabaseHost) {
+        if (supabaseHost == null || supabaseHost.trim().isEmpty()) {
+            return false;
+        }
+        return isLocalJdbcUrl(normalizedDirectUrl);
+    }
+
+    private static boolean isLocalJdbcUrl(String jdbcUrl) {
+        if (jdbcUrl == null) {
+            return false;
+        }
+        String lower = jdbcUrl.toLowerCase();
+        return lower.contains("//localhost:")
+            || lower.contains("//127.0.0.1:")
+            || lower.contains("//0.0.0.0:");
     }
 
     private static String getConfig(String key) {
@@ -206,6 +249,8 @@ public class DBConnection {
                     "totalPrice DECIMAL(10,2) NOT NULL," +
                     "orderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP," +
                     "FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE)");
+
+                stmt.execute("ALTER TABLE orders ADD COLUMN IF NOT EXISTS status VARCHAR(20) DEFAULT 'PENDING'");
 
                 stmt.execute("CREATE TABLE IF NOT EXISTS order_items (" +
                     "id SERIAL PRIMARY KEY," +

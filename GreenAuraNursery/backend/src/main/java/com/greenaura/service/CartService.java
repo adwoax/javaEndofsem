@@ -18,6 +18,10 @@ public class CartService {
         cartRepository.addToCart(userId, plantId);
     }
 
+    public void removeFromCart(int userId, int plantId) {
+        cartRepository.removeFromCart(userId, plantId);
+    }
+
     public List<CartItem> getCartItems(int userId) {
         return cartRepository.findCartItemsByUserId(userId);
     }
