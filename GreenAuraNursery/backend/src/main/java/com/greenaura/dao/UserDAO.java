@@ -48,9 +48,14 @@ public class UserDAO {
         String sql = "INSERT INTO users (fullName, email, password, phone, address) " +
                      "VALUES (?, ?, ?, ?, ?)";
 
+        Connection conn = DBConnection.getConnection();
+        if (conn == null) {
+            System.out.println("ERROR in registerUser: database connection is unavailable.");
+            return false;
+        }
+
         // Try-with-resources: automatically closes connection when done
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (conn; PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             // Fill in the ? placeholders with real values
             stmt.setString(1, user.getFullName());
@@ -79,8 +84,13 @@ public class UserDAO {
     public User getUserByEmail(String email) {
         String sql = "SELECT * FROM users WHERE email = ?";
 
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        Connection conn = DBConnection.getConnection();
+        if (conn == null) {
+            System.out.println("ERROR in getUserByEmail: database connection is unavailable.");
+            return null;
+        }
+
+        try (conn; PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, email);
 
@@ -115,8 +125,13 @@ public class UserDAO {
     public boolean emailExists(String email) {
         String sql = "SELECT id FROM users WHERE email = ?";
 
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        Connection conn = DBConnection.getConnection();
+        if (conn == null) {
+            System.out.println("ERROR in emailExists: database connection is unavailable.");
+            return false;
+        }
+
+        try (conn; PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, email);
             ResultSet rs = stmt.executeQuery();

@@ -1,5 +1,21 @@
 (function () {
-    const API_BASE = window.location.protocol + "//" + window.location.hostname + ":8080/GreenAuraNursery/api";
+    function resolveApiBase() {
+        const override = window.localStorage ? window.localStorage.getItem("GREENAURA_API_BASE") : "";
+        if (override) {
+            return String(override).replace(/\/+$/, "");
+        }
+
+        const protocol = window.location.protocol;
+        const hostname = window.location.hostname;
+        if ((protocol === "http:" || protocol === "https:") && hostname) {
+            return protocol + "//" + hostname + ":8080/GreenAuraNursery/api";
+        }
+
+        // Fallback helps when pages are opened from non-http contexts.
+        return "http://localhost:8080/GreenAuraNursery/api";
+    }
+
+    const API_BASE = resolveApiBase();
 
     function request(path, options) {
         const config = options || {};

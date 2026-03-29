@@ -6,9 +6,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /** Utility class for PostgreSQL connectivity and one-time schema bootstrap. */
 public class DBConnection {
+
+    private static final Map<String, String> FILE_CONFIG = loadEnvFileConfig();
 
     // Override on each device/server using environment variables.
     // Priority order:
@@ -17,21 +25,23 @@ public class DBConnection {
     private static final String URL = resolveJdbcUrl();
     private static final String USERNAME =
         firstNonBlank(
-            System.getenv("GREENAURA_DB_USER"),
-            System.getenv("SUPABASE_DB_USER"),
+            getConfig("GREENAURA_DB_USER"),
+            getConfig("SUPABASE_DB_USER"),
             "postgres"
         );
     private static final String PASSWORD =
         firstNonBlank(
-            System.getenv("GREENAURA_DB_PASSWORD"),
-            System.getenv("SUPABASE_DB_PASSWORD"),
+            getConfig("GREENAURA_DB_PASSWORD"),
+            getConfig("SUPABASE_DB_PASSWORD"),
             "postgres"
         );
 
     private static volatile boolean initialized = false;
+    private static volatile boolean configLogged = false;
 
     /** Returns a live PostgreSQL connection and ensures bootstrap has run. */
     public static Connection getConnection() {
+        logResolvedConfigOnce();
         try {
             Class.forName("org.postgresql.Driver");
             Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -50,16 +60,26 @@ public class DBConnection {
         return null;
     }
 
+    private static void logResolvedConfigOnce() {
+        if (configLogged) return;
+        synchronized (DBConnection.class) {
+            if (configLogged) return;
+            System.out.println("DB URL resolved to: " + URL);
+            System.out.println("DB USER resolved to: " + USERNAME);
+            configLogged = true;
+        }
+    }
+
     private static String resolveJdbcUrl() {
-        String directUrl = firstNonBlank(System.getenv("GREENAURA_DB_URL"), null);
+        String directUrl = firstNonBlank(getConfig("GREENAURA_DB_URL"), null);
         if (directUrl != null) {
             return normalizeJdbcUrl(directUrl);
         }
 
-        String host = firstNonBlank(System.getenv("SUPABASE_DB_HOST"), null);
-        String port = firstNonBlank(System.getenv("SUPABASE_DB_PORT"), "5432");
-        String dbName = firstNonBlank(System.getenv("SUPABASE_DB_NAME"), "postgres");
-        String sslMode = firstNonBlank(System.getenv("GREENAURA_DB_SSLMODE"), "require");
+        String host = firstNonBlank(getConfig("SUPABASE_DB_HOST"), null);
+        String port = firstNonBlank(getConfig("SUPABASE_DB_PORT"), "5432");
+        String dbName = firstNonBlank(getConfig("SUPABASE_DB_NAME"), "postgres");
+        String sslMode = firstNonBlank(getConfig("GREENAURA_DB_SSLMODE"), "require");
 
         if (host != null) {
             return "jdbc:postgresql://" + host + ":" + port + "/" + dbName + "?sslmode=" + sslMode;
@@ -86,8 +106,56 @@ public class DBConnection {
         if (jdbcUrl.contains("sslmode=")) {
             return jdbcUrl;
         }
-        String sslMode = firstNonBlank(System.getenv("GREENAURA_DB_SSLMODE"), "require");
+        String sslMode = firstNonBlank(getConfig("GREENAURA_DB_SSLMODE"), "require");
         return jdbcUrl + (jdbcUrl.contains("?") ? "&" : "?") + "sslmode=" + sslMode;
+    }
+
+    private static String getConfig(String key) {
+        String env = System.getenv(key);
+        if (env != null && !env.trim().isEmpty()) {
+            return env.trim();
+        }
+        String fileValue = FILE_CONFIG.get(key);
+        return fileValue != null && !fileValue.trim().isEmpty() ? fileValue.trim() : null;
+    }
+
+    private static Map<String, String> loadEnvFileConfig() {
+        Map<String, String> values = new HashMap<>();
+        Path[] candidates = new Path[] {
+            Paths.get(".env"),
+            Paths.get(".env.example"),
+            Paths.get("backend", ".env"),
+            Paths.get("backend", ".env.example")
+        };
+
+        for (Path candidate : candidates) {
+            if (!Files.exists(candidate)) {
+                continue;
+            }
+            try {
+                List<String> lines = Files.readAllLines(candidate);
+                for (String line : lines) {
+                    String trimmed = line.trim();
+                    if (trimmed.isEmpty() || trimmed.startsWith("#")) {
+                        continue;
+                    }
+                    int idx = trimmed.indexOf('=');
+                    if (idx <= 0) {
+                        continue;
+                    }
+                    String key = trimmed.substring(0, idx).trim();
+                    String value = trimmed.substring(idx + 1).trim();
+                    if (!key.isEmpty() && !values.containsKey(key)) {
+                        values.put(key, value);
+                    }
+                }
+                break;
+            } catch (Exception ignored) {
+                // If a candidate file cannot be read, try the next one.
+            }
+        }
+
+        return values;
     }
 
     private static String firstNonBlank(String first, String second) {
